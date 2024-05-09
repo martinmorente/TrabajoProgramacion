@@ -47,7 +47,7 @@ CREATE TABLE IF NOT EXISTS Escaneo_archivo(
     fecha_escaneo DATETIME NOT NULL,
     resultado VARCHAR(255) NOT NULL,
     nivel_amenaza VARCHAR(45) NOT NULL,
-    num_escaneoArhcivo INT NOT NULL,
+    num_escaneoArchivo INT NOT NULL,
     id_archivoEscaneo INT,
     FOREIGN KEY (id_archivoEscaneo) REFERENCES Archivo (id_archivo)
 );
