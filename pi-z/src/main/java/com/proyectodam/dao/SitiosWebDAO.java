@@ -28,20 +28,14 @@ public class SitiosWebDAO {
     }
 
     // Leer Sitios_Web por ID
-    public static String obtenerSitiosPorId(String url) {
-        String sql = "SELECT * FROM Sitios_web WHERE url = ?";
+    public static SitiosWeb obtenerAutorPorId(int id) {
+        String sql = "SELECT * FROM Sitios_web WHERE id = ?";
         try (Connection conn = Conexion.getConnection();/*Dentro del try meto lo que voy a ejecutar*/
              PreparedStatement pstmt = conn.prepareStatement(sql)) {
-            pstmt.setString(1, url);
+            pstmt.setInt(1, id);
             ResultSet rs = pstmt.executeQuery();
             if (rs.next()) {
-                String resultado; 
-
-                String id = rs.getString("id");
-                String urls = rs.getString("url");
-
-                resultado = id + " " + urls;
-                return resultado;
+                return new SitiosWeb(rs.getInt("id"), rs.getString("url"));
             }
          }catch (SQLException e) {/*Manejo de errores (?)*/
             e.printStackTrace();
@@ -69,7 +63,6 @@ public class SitiosWebDAO {
 
         return null;
     }
-    
 
 
     /* Obtener url por url introducida*/

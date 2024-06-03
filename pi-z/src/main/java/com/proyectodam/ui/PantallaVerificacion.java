@@ -29,8 +29,6 @@ public class PantallaVerificacion extends JFrame {
     private JButton verificar;
     private static TextArea areaTexto;
     private JLabel textoEspera;
-    public JButton comboboxDeleteButton;
-    public JButton selectButton;
 
     public PantallaVerificacion() {
         super("Verificación");
@@ -71,16 +69,6 @@ public class PantallaVerificacion extends JFrame {
         gbc.gridy = 2;
         gbc.gridwidth = 2;
         add(textoEspera, gbc);
-
-        JButton comboboxDeleteButton = new JButton("Borrar elementos");
-        gbc.gridx = 0;
-        gbc.gridy = 3;
-        add(comboboxDeleteButton,gbc);
-
-        JButton selectButton = new JButton("Mostrar elementos");
-        gbc.gridx = 0;
-        gbc.gridy = 4;
-        add(selectButton,gbc);
 
         verificar.addActionListener(new ActionListener() {
             @Override
@@ -123,31 +111,6 @@ public class PantallaVerificacion extends JFrame {
                 setVisible(false);
             }
         });
-
-        comboboxDeleteButton.addActionListener(new ActionListener() {
-            
-            @Override
-            public void actionPerformed(ActionEvent e){
-                com.proyectodam.ui.InterfazCombobox gui = new InterfazCombobox();
-                gui.setVisible(true);
-                setVisible(false);
-            }
-        });
-    
-        setVisible(true);
-
-
-        selectButton.addActionListener(new ActionListener() {
-            
-            @Override
-            public void actionPerformed(ActionEvent e){
-                InterfazSelect gui = new InterfazSelect();
-                gui.setVisible(true);
-                setVisible(false);
-            }
-        });
-    
-        setVisible(true);
     
     
     }

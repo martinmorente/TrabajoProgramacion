@@ -47,11 +47,11 @@ public class EscaneoWebDAO {
         }
     }
 // Leer un Escaneo por ID
-    public static EscaneoWeb obtenerEscaenoWebPorURL(String url) {
-        String sql = "SELECT * FROM Escaneo_Web WHERE idSitiosWeb IN (SELECT id FROM Archivos WHERE url = ?)";/* */
+    public static EscaneoWeb obtenerEscaenoWebPorId(int id) {
+        String sql = "SELECT * FROM Escaneo_Web WHERE = id?";/* */
         try (Connection conn = Conexion.getConnection();/*Dentro del try meto lo que voy a ejecutar*/
              PreparedStatement pstmt = conn.prepareStatement(sql)) {
-            pstmt.setString(1, url);
+            pstmt.setInt(1, id);
             ResultSet rs = pstmt.executeQuery();
             if (rs.next()) {
                 return new EscaneoWeb(rs.getInt("id"), rs.getString("fecha_escaneo"), rs.getString("resultado"),  rs.getInt("num_escaneoWeb"), rs.getString("nombreAntivirus"));

@@ -20,8 +20,6 @@ public class PIZGUI extends JFrame {
     private JButton btnLogin;
     private JButton verifyButton;
     private JButton scanButton;
-   
-
     public static Component frame;
 
     public PIZGUI() {

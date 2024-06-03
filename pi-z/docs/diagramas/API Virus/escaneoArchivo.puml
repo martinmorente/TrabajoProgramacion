@@ -1,0 +1,8 @@
+@startuml
+class EscaneoArchivo{
+
+	- final API_KEY: String
+	+ scanFile(String filePath): String
+	+ getFileReport(String scanId): String
+}
+@enduml

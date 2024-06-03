@@ -6,13 +6,6 @@
     "configurations": [
         {
             "type": "java",
-            "name": "InterfazSelect",
-            "request": "launch",
-            "mainClass": "com.proyectodam.ui.InterfazSelect",
-            "projectName": "pi-z"
-        },
-        {
-            "type": "java",
             "name": "InterfazCombobox",
             "request": "launch",
             "mainClass": "com.proyectodam.ui.InterfazCombobox",
