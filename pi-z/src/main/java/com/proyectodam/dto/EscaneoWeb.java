@@ -4,9 +4,8 @@ public class EscaneoWeb {
     private int idEscaneoWeb;
     private String fechaEscaneo;
     private String resultado;
-    private String tipoMaldad;
     private int numEscaneoWeb;
-    private String urlFinal;
+    private String nombreAntivirus;
 
 
     public EscaneoWeb(){
@@ -14,13 +13,12 @@ public class EscaneoWeb {
     }
 
 
-    public EscaneoWeb(int idEscaneoWeb,String fechaEscaneo,String resultado,String tipoMaldad,int numEscaneoWeb,String urlFinal){
+    public EscaneoWeb(int idEscaneoWeb,String fechaEscaneo,String resultado,int numEscaneoWeb,String nombreAntivirus){
         this.idEscaneoWeb = idEscaneoWeb;
         this.fechaEscaneo=fechaEscaneo;
         this.resultado=resultado;
-        this.tipoMaldad=tipoMaldad;
         this.numEscaneoWeb=numEscaneoWeb;
-        this.urlFinal=urlFinal;
+        this.nombreAntivirus=nombreAntivirus;
     }
 
 
@@ -54,13 +52,13 @@ public class EscaneoWeb {
     }
 
 
-    public String getTipoMaldad() {
-        return tipoMaldad;
+    public String getNombreAntivirus() {
+        return nombreAntivirus;
     }
 
 
-    public void setTipoMaldad(String tipoMaldad) {
-        this.tipoMaldad=tipoMaldad;
+    public void setNombreAntivirus(String nombreAntivirus) {
+        this.nombreAntivirus=nombreAntivirus;
     }
 
 
@@ -74,20 +72,13 @@ public class EscaneoWeb {
     }
 
 
-    public String getUrlFinal() {
-        return urlFinal;
-    }
-
-
-    public void setUrlFinal(String urlFinal) {
-        this.urlFinal = urlFinal;
-    }
 
     @Override
     public String toString(){
-        return "escaneoWeb{"+"id="+idEscaneoWeb+ " fecha escaneo="+fechaEscaneo+" resultado="+resultado+" tipo maldad="+tipoMaldad+" numero veces escaneado="+numEscaneoWeb+" url final"+urlFinal+"}";
+        return "escaneoWeb{"+"id="+idEscaneoWeb+ " fecha escaneo="+fechaEscaneo+" resultado="+resultado+" numero veces escaneado="+numEscaneoWeb+" nombre del antivirus="+nombreAntivirus+"}";
     }
 
 
 
 }
+//Ludmila

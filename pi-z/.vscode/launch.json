@@ -6,6 +6,55 @@
     "configurations": [
         {
             "type": "java",
+            "name": "InterfazSelect",
+            "request": "launch",
+            "mainClass": "com.proyectodam.ui.InterfazSelect",
+            "projectName": "pi-z"
+        },
+        {
+            "type": "java",
+            "name": "InterfazCombobox",
+            "request": "launch",
+            "mainClass": "com.proyectodam.ui.InterfazCombobox",
+            "projectName": "pi-z"
+        },
+        {
+            "type": "java",
+            "name": "PantallaEscaneo",
+            "request": "launch",
+            "mainClass": "com.proyectodam.ui.PantallaEscaneo",
+            "projectName": ""
+        },
+        {
+            "type": "java",
+            "name": "busqueda$JsonScansParserGson",
+            "request": "launch",
+            "mainClass": "com.proyectodam.Negocio.busqueda$JsonScansParserGson",
+            "projectName": ""
+        },
+        {
+            "type": "java",
+            "name": "busqueda",
+            "request": "launch",
+            "mainClass": "com.proyectodam.Negocio.busqueda",
+            "projectName": ""
+        },
+        {
+            "type": "java",
+            "name": "busqueda",
+            "request": "launch",
+            "mainClass": "com.proyectodam.Negocio.busqueda",
+            "projectName": "pi-z"
+        },
+        {
+            "type": "java",
+            "name": "PantallaVerificacion",
+            "request": "launch",
+            "mainClass": "com.proyectodam.ui.PantallaVerificacion",
+            "projectName": "pi-z"
+        },
+        {
+            "type": "java",
             "name": "PantallaEscaneo",
             "request": "launch",
             "mainClass": "com.proyectodam.ui.PantallaEscaneo",

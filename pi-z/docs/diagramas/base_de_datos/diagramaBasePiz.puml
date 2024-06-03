@@ -1,0 +1,48 @@
+@startuml
+entity Sitios_web {
+  + id_web: INT
+  + url_web: VARCHAR(255)
+}
+ 
+entity Escaneo_Web {
+  + id_escaneo_web: INT
+  + fecha_escaneo: DATETIME
+  + resultado: VARCHAR(50)
+  + num_escaneoWeb: INT
+  + id_Web: INT
+}
+ 
+entity Archivo {
+  + id_archivo: INT
+  + nombre: VARCHAR(45)
+  + ruta: VARCHAR(255)
+  + tamano: DOUBLE
+  + tipo_archivo: VARCHAR(45)
+}
+ 
+entity Escaneo_archivo {
+  + id_escaneo_archivo: INT
+  + fecha_escaneo: DATETIME
+  + resultado: VARCHAR(255)
+  + nivel_amenaza: VARCHAR(45)
+  + num_escaneoArchivo: INT
+  + id_archivoEscaneo: INT
+}
+ 
+entity Registro_Archivo {
+  + idRegistro_Archivo: INT
+  + tipo_antivirus_escaneado: VARCHAR(45)
+  + descripcion_antivirus: VARCHAR(255)
+}
+ 
+entity Escaneo_Registro_Archivo {
+  + escaneo_Registro: INT
+  + registro_Escaneo: INT
+}
+ 
+Sitios_web ||--o{ Escaneo_Web
+Sitios_web ||--o{ Escaneo_archivo
+Archivo ||--o{ Escaneo_archivo
+Registro_Archivo ||--o{ Escaneo_Registro_Archivo
+Escaneo_archivo ||--o{ Escaneo_Registro_Archivo
+@enduml

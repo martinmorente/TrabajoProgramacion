@@ -1,0 +1,12 @@
+@startuml 
+class SitiosWeb { 
+    - id: int 
+    - url: String 
+    + SitiosWeb() 
+    + SitiosWeb(int, String) 
+    + getIdWeb(): int 
+    + setIdWeb(int): void 
+    + getUrlWeb(): String 
+    + setUrlWeb(String): void 
+} 
+@enduml 

@@ -1,0 +1,24 @@
+@startuml 
+class EscaneoArchivoDAO { 
+    + insertarEscaneoArchivo(busqueda: Busqueda): boolean 
+    + obtenerEscaneoArchivoPorId(id: int): Busqueda 
+    + actualizarEscaneoArchivo(busqueda: Busqueda): boolean 
+    + eliminarEscaneoArchivo(id: int): boolean 
+} 
+class Busqueda { 
+    + busquedaElementosArchivos(): String[] 
+} 
+class PantallaEscaneo { 
+ + contadorEscaneos(): int 
+} 
+class Conexion { 
+    + getConnection(): Connection 
+} 
+class Connection { 
+    // Methods 
+} 
+EscaneoArchivoDAO *-- Busqueda : Uses 
+EscaneoArchivoDAO *-- PantallaEscaneo : Uses 
+EscaneoArchivoDAO *-- Conexion : Uses 
+EscaneoArchivoDAO *-- Connection : Uses 
+@enduml 

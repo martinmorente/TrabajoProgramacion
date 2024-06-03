@@ -1,0 +1,29 @@
+@startuml
+
+left to right direction
+skinparam packageStyle rectangle
+actor "Usuario" as user
+actor "Sistema de Base de Datos" as db
+
+rectangle "Aplicación de Gestión de Virus" {
+    user --> (Accede al login) : Ingresa datos\ny confirma 
+    user --> (Pantalla PIZGUI) : Pantalla principal del programa
+    user --> (Pantalla Verificación) : Pantalla con funcionalidad de verificación
+    user --> (Pantalla Escaneo) : Pantalla con funcionalidad de escaneo
+    user --> (Pantalla Combobox) : Pantalla con funcionalidad de borrado
+
+    (Agregar url / ruta) .> (Pantalla verificación / Pantalla escaneo) : Extiende
+    (Eliminar url) .> (Pantalla Combobox) : Extiende
+
+    user --> (Agregar url / ruta) : Agrega la url que va a ser recogida por la API para el control de virus
+    user --> (Interactuar con Interfaz Gráfica) : Usa PIZGUI
+
+    (Agregar url / ruta) --> db : Realiza inserción 
+    (Eliminar url / ruta) --> db : Realiza eliminación
+
+    db --> (Conectar a la Base de Datos) : Requiere conexión
+    db --> (Desconectar de la Base de Datos) : Cierra conexión
+}
+
+@enduml
+

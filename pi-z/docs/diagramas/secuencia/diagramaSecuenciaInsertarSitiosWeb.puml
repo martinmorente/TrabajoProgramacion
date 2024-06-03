@@ -1,0 +1,32 @@
+@startuml
+
+actor Usuario
+participant "PantallaVerificacion/Escaneo" as GUI
+participant "SitiosWebDAO" as DAO
+participant "Conexion" as DB
+
+Usuario -> GUI : agregarSitiosWeb()
+activate GUI
+
+GUI -> DAO : insertarSitiosWeb(sitiosWeb)
+activate DAO
+
+DAO -> DB : getConnection()
+activate DB
+DB --> DAO : connection
+deactivate DB
+
+DAO -> DB : prepareStatement(sql)
+activate DB
+DB --> DAO : pstmt
+deactivate DB
+
+DAO -> DB : executeUpdate()
+DB --> DAO : result
+deactivate DAO
+
+DAO --> GUI : result
+deactivate GUI
+
+@enduml
+

@@ -1,0 +1,7 @@
+@startuml
+class EscaneoPaginaWeb{
+	- final API_KEY: String
+	+ scanUrl(urlToEscan): String
+	+ getURLReport(scanId): String
+}
+@enduml

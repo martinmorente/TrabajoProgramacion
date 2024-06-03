@@ -1,0 +1,10 @@
+@startuml
+class ArchivoDAO{
++insertarArchivo(busqueda:Busqueda):boolean
++obtenerArchivoPorId(id:int):Busqueda
+}
+class Busqueda{
++busquedaElementosArchivos():String
+}
+ArchivoDAO-->Busqueda:uses
+@enduml

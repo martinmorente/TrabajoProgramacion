@@ -4,17 +4,17 @@ public class Escaneo_archivo{
     private int id_escaneo_archivo;
     private String fecha_escaneo;
     private String resultado;
-    private String nivel_amenaza;
     private int numero_escaneoArchivo;
+    private String nombreAntivirus;
 
     public Escaneo_archivo(){}
 
-    public Escaneo_archivo(int id_escaneo_archivo,String fecha_escaneo, String resultado, String nivel_amenaza, int numero_escaneoArchivo){
+    public Escaneo_archivo(int id_escaneo_archivo,String fecha_escaneo, String resultado, int numero_escaneoArchivo, String nombreAntivirus){
         this.id_escaneo_archivo = id_escaneo_archivo;
         this.fecha_escaneo = fecha_escaneo;
         this.resultado = resultado;
-        this.nivel_amenaza = nivel_amenaza;
         this.numero_escaneoArchivo = numero_escaneoArchivo;
+        this.nombreAntivirus = nombreAntivirus;
     }
 
 
@@ -30,8 +30,8 @@ public class Escaneo_archivo{
         return resultado;
     }
 
-    public String getNivelAmenaza(){
-        return nivel_amenaza;
+    public String getNombreAntivirus(){
+        return nombreAntivirus;
     }
 
     public int getNumeroEscaneoArchivo(){
@@ -49,8 +49,8 @@ public class Escaneo_archivo{
         this.resultado = resultado;
     }
 
-    public void setNivelAmenaza(String nivel_amenaza){
-        this.nivel_amenaza = nivel_amenaza;
+    public void setNombreAntivirus(String nombreAntivirus){
+        this.nombreAntivirus = nombreAntivirus;
     }
 
     public void setNumeeroEscaneoArchivo(int numero_escaneoArchivo){
@@ -59,3 +59,5 @@ public class Escaneo_archivo{
 
     
 }
+
+//Coral terminado

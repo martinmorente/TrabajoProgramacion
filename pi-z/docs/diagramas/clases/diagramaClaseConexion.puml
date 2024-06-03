@@ -1,0 +1,20 @@
+@startuml 
+class Conexion { 
+    - connection: Connection 
+    - URL: String 
+    - USER: String 
+    - PASSWORD: String 
+    + getConnection(): Connection 
+    - reconnect(): void 
+    + closeConnection(): void 
+} 
+class DriverManager { 
+    + getConnection(url: String, user: String, password: String): Connection 
+} 
+Conexion *-- DriverManager : Uses 
+class SQLException { 
+    + SQLException(message: String, cause: Throwable) 
+}  
+Conexion *-- SQLException : Throws 
+Connection --|> DriverManager 
+@enduml

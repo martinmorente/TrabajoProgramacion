@@ -1,21 +1,39 @@
 package com.proyectodam.dao;
 
+import java.util.List;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
-import com.proyectodam.dto.Archivo;
+import java.util.ArrayList;
+
+import com.proyectodam.Negocio.Busqueda;
+import com.proyectodam.ui.PantallaEscaneo;
 
 public class ArchivoDAO {
 
-    public boolean insertarArchivo(Archivo archivo) {
-        String sql = "INSERT INTO Archivo (nombre,ruta,tamano,tipoArchivo) VALUES (?,?,?,?)";
-        try (Connection conn = Conexion.getConnection();
+    public static boolean insertarArchivo(Busqueda busqueda  ) {
+        String sql = "INSERT INTO Archivo (ruta,hash) VALUES (?,?)";
+
+        Busqueda busquedas = new Busqueda();
+        String[] detalles = busquedas.busquedaElementosArchivos();
+
+        String ruta = "";
+        String hash = "";
+
+        if (detalles == null) {
+            System.out.println("No se encontró nada");
+        } else {
+            for (String detalle : detalles) {
+                ruta = PantallaEscaneo.urlArchivo();
+                hash = detalles[3];
+            }
+        }
+    
+    try (Connection conn = Conexion.getConnection();
                 PreparedStatement pstmt = conn.prepareStatement(sql)) {
-            pstmt.setString(1, archivo.getNombre());
-            pstmt.setString(2, archivo.getRuta());
-            pstmt.setLo(3, archivo.getTamano());
-            pstmt.setString(4, archivo.getTipoArchivo());
+            pstmt.setString(1, ruta);
+            pstmt.setString(2, hash);
             return pstmt.executeUpdate() > 0;
         } catch (SQLException e) {
             e.printStackTrace();
@@ -24,14 +42,17 @@ public class ArchivoDAO {
     }
 
     // Leer un Escaneo_archivo por ID
-    public Autor obtenerAutorPorId(int id) {
-        String sql = "SELECT * FROM autores WHERE autor_id = ?";/* */
+    public static String obtenerArchivoPorURL(String url) {
+        String sql = "SELECT * FROM Archivo WHERE ruta = ?";
         try (Connection conn = Conexion.getConnection(); /* Dentro del try meto lo que voy a ejecutar */
                 PreparedStatement pstmt = conn.prepareStatement(sql)) {
-            pstmt.setInt(1, id);
+            pstmt.setString(1, url);
             ResultSet rs = pstmt.executeQuery();
             if (rs.next()) {
-                return new Autor(rs.getInt("autor_id"), rs.getString("nombre"));
+                String id = rs.getString("id");
+                String ruta = rs.getString("ruta");
+                String resultado = id +" "+ ruta;
+                return resultado;
             }
         } catch (SQLException e) {/* Manejo de errores (?) */
             e.printStackTrace();
@@ -39,23 +60,72 @@ public class ArchivoDAO {
         return null;
     }
 
-    // Actualizar un autor
-    public boolean actualizarAutor(Autor autor) {
-        String sql = "UPDATE autores SET nombre = ? WHERE autor_id = ?";
+
+    public static String obtenerUrlPorHashEscaneo(String hashUrl) {
+        String sql = "SELECT ruta FROM Archivo WHERE hash = ? ORDER BY ruta DESC";
         try (Connection conn = Conexion.getConnection();
-                PreparedStatement pstmt = conn.prepareStatement(sql)) {
-            pstmt.setString(1, autor.getNombre());
-            pstmt.setInt(2, autor.getId());/* Aquí 2 porque corresponde al segundo signo de interrogación */
-            return pstmt.executeUpdate() > 0;
+             PreparedStatement pstmt = conn.prepareStatement(sql)) {
+            
+            // Establece el parámetro del hash
+            pstmt.setString(1, hashUrl);
+            
+            // Ejecuta la consulta y obtiene el resultado
+            try (ResultSet rs = pstmt.executeQuery()) {
+                if (rs.next()) {
+                    // Retorna la ruta si se encuentra
+                    return rs.getString("ruta");
+                }
+            }
         } catch (SQLException e) {
+            // Manejo de excepción para SQLException
             e.printStackTrace();
-            return false;
         }
+        // Retorna null si no se encuentra la URL asociada al hash
+        return null;
     }
 
-    // Eliminar un autor
-    public boolean eliminarAutor(int id) {
-        String sql = "DELETE FROM autores WHERE autor_id = ?";
+
+
+    /*Encontrar el id por el hash del archivo*/
+
+    public static Integer obtenerIdPorHash(String hash) {
+    String sql = "SELECT id FROM Archivo WHERE hash = ?";
+    try (Connection conn = Conexion.getConnection();
+         PreparedStatement pstmt = conn.prepareStatement(sql)) {
+        pstmt.setString(1, hash);
+        try (ResultSet rs = pstmt.executeQuery()) {
+            if (rs.next()) {
+                return rs.getInt("id"); // Supongo que la columna del ID se llama "id"
+            } else {
+                return null; // Retornar null si no se encuentra un registro
+            }
+        }
+    } catch (Exception e) {
+        e.printStackTrace(); // Imprimir el stack trace para ayudar en la depuración
+        return null; // Retornar null en caso de una excepción
+    }
+    }
+
+    //Eliminar por url
+     public static List<Integer> obtenerIdsPorUrl(String url) {
+        List<Integer> ids = new ArrayList<>();
+        String sql = "SELECT id FROM Archivo WHERE ruta = ?";
+        try (Connection conn = Conexion.getConnection();
+             PreparedStatement pstmt = conn.prepareStatement(sql)) {
+            pstmt.setString(1, url);
+            ResultSet rs = pstmt.executeQuery();
+            while (rs.next()) {
+                ids.add(rs.getInt("id"));
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return ids;
+    }
+
+    // Eliminar Archivo (Si)
+    public static boolean eliminarArchivo(int id) {
+        String sql = "DELETE FROM Archivo WHERE id = ?";
         try (Connection conn = Conexion.getConnection();
                 PreparedStatement pstmt = conn.prepareStatement(sql)) {
             pstmt.setInt(1, id);
@@ -66,5 +136,4 @@ public class ArchivoDAO {
         }
     }
 }
-
-//Coral
+//Coral&Ludmila terminado

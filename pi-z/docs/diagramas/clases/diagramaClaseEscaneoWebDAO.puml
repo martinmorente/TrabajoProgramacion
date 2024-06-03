@@ -1,0 +1,28 @@
+@startuml 
+class EscaneoWebDAO { 
+    + insertarEscaneoWeb(Busqueda): boolean 
+    + obtenerEscaenoWebPorId(int): EscaneoWeb 
+    + actualizarEscaneoweb(Busqueda): boolean 
+    + eliminarEscaneoWeb(int): boolean 
+} 
+class Busqueda { 
+    + busquedaElementosArchivos(): String 
+} 
+class PantallaEscaneo { 
+    + contadorEscaneos(): int 
+} 
+class Conexion { 
+    + getConnection(): Connection 
+} 
+class EscaneoWeb { 
+    - id: int 
+    - fecha_escaneo: String 
+    - resultado: String 
+    - num_escaneoWeb: int 
+    - nombreAntivirus: String 
+} 
+EscaneoWebDAO "1" -- "1..*" Busqueda 
+EscaneoWebDAO "1" -- "1" PantallaEscaneo 
+EscaneoWebDAO "1" -- "1" Conexion 
+EscaneoWebDAO "1..*" -- "1" EscaneoWeb 
+@enduml 

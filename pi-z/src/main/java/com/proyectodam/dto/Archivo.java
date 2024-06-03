@@ -4,56 +4,47 @@ public class Archivo {
     private int idArchivo;
     private String nombre;
     private String ruta;
-    private int tamano;
-    private String tipoArchivo;
+    private String hash;
 
     public Archivo() {
 
     }
     
-    public Archivo(int idArchivo, String nombre, String ruta, int tamano, String tipoArchivo) {
+    public Archivo(int idArchivo, String nombre, String ruta, String hash) {
         this.idArchivo = idArchivo;
         this.nombre = nombre;
-        this.ruta = ruta;
-        this.tamano = tamano;
-        this.tipoArchivo = tipoArchivo;
+        this.hash = hash;
     }
 
     public int getIdArchivo() {
-        return this.idArchivo;
+        return idArchivo;
     }
 
-    public void setidArchivo(int idArchivo) {
-        throw new UnsupportedOperationException("No soportó");
+    public void setIdArchivo(int idArchivo) {
+        this.idArchivo = idArchivo;
     }
 
     public String getNombre() {
-        return this.nombre;
+        return nombre;
     }
 
     public void setNombre(String nombre) {
         this.nombre = nombre;
     }
-    
-    public String getRuta(){
-        return this.ruta;
+
+    public String getRuta() {
+        return ruta;
     }
+
     public void setRuta(String ruta) {
         this.ruta = ruta;
     }
 
-    public int getTamano(int tamano){
-        return this.tamano;
+    public String getHash() {
+        return hash;
     }
-
-    public void setTamano(int tamano){
-        this.tamano=tamano;
-    }
-    public String getTipoArchivo(){
-        return this.tipoArchivo;
-    }
-    public void setTipoArchivo(String tipoArchivo){
-        this.tipoArchivo=tipoArchivo;
+    public void setHash(String hash){
+        this.hash = hash;
     }
 
 }

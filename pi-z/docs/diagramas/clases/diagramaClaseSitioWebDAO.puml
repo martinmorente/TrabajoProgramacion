@@ -1,0 +1,22 @@
+@startuml 
+class SitiosWebDAO { 
+    + insertarArchivo(Busqueda): boolean 
+    + obtenerAutorPorId(int): SitiosWeb 
+    + actualizarSitiosWeb(Busqueda): boolean 
+    + eliminarSitioWeb(int): boolean 
+} 
+class Busqueda { 
+    + busquedaElementosArchivos(): String 
+} 
+class Conexion { 
+    + getConnection(): Connection 
+} 
+ 
+class SitiosWeb { 
+    - id: int 
+    - url: String 
+} 
+SitiosWebDAO "1" -- "1..*" Busqueda 
+SitiosWebDAO "1" -- "1" Conexion 
+SitiosWebDAO "1..*" -- "1" SitiosWeb 
+@enduml 

@@ -1,0 +1,15 @@
+@startgantt
+scale 1.5
+Project starts the 2024-04-02
+[Planificación del proyecto] as [Plan] lasts 13 days
+[Diseño del Sistema] as [Diseño] lasts 8 days
+[Desarrollo] lasts 34 days
+[Pruebas] lasts 5 days
+[Implementación \n y Cierre] as [Cierre] lasts 3 days
+
+[Diseño] starts at [Plan]'s end
+[Desarrollo] starts at [Diseño]'s end
+[Pruebas] starts at [Desarrollo]'s end
+[Cierre] starts at [Pruebas]'s end
+@endgantt
+

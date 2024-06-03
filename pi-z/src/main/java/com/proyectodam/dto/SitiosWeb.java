@@ -1,51 +1,35 @@
 package com.proyectodam.dto;
 
 public class SitiosWeb {
-    private int id_web;
-    private String url_web;
-    private String tipo_web;
-    private String descripcion_web;
+    private int id;
+    private String url;
+    
 
     public SitiosWeb(){}
 
-    public SitiosWeb(int id_web, String url_web, String tipo_web, String descripcion_web){
-        this.id_web= id_web;
-        this.url_web=url_web;
-        this.tipo_web=tipo_web;
-        this.descripcion_web=descripcion_web;
+    public SitiosWeb(int id, String url){
+        this.id= id;
+        this.url=url;
+        
     }
 
       public int getIdWeb() {
-        return id_web;
+        return id;
     }
 
-    public void setIdWeb(int id_web) {
-        this.id_web = id_web;
+    public void setIdWeb(int id) {
+        this.id = id;
     }
 
     public String getUrlWeb(){
-        return url_web;
+        return url;
     }
 
-    public void setUrlWeb(String url_web){
-        this.url_web=url_web;
+    public void setUrlWeb(String url){
+        this.url=url;
     }
 
-     public String getTipoWeb(){
-        return tipo_web;
-    }
-
-    public void setTipoWeb(String tipo_web){
-        this.tipo_web=tipo_web;
-    }
-
-     public String getDescripcionWeb(){
-        return descripcion_web;
-    }
-
-    public void setDescripcionweb(String descripcion_web){
-        this.descripcion_web=descripcion_web;
-    }
+    
 
 
     

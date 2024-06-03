@@ -1,0 +1,8 @@
+@startuml
+class Busqueda{
+	+ transformacionEscaneoArchivo(): void
+	+ transformacionEscaneoWeb(): void
+	+ busquedaElementosArchivos(): String[]
+	+ busquedaElementosWeb(): String[]
+}
+@enduml
