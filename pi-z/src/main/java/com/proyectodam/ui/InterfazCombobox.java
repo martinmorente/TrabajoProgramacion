@@ -33,12 +33,14 @@ public class InterfazCombobox extends JFrame {
         JButton button = new JButton("Seleccionar");
         JButton pantallaEscaneo = new JButton("Escaneo Archivo");
         JButton pantallaVerificacion = new JButton("Escaneo Pagina Web");
+        JButton button2 = new JButton("Mostrar elementos");
 
         // Añadir los componentes al JFrame
         add(comboBox);
         add(button);
         add(pantallaEscaneo);
         add(pantallaVerificacion);
+        add(button2);
 
         // Acción para el botón "Seleccionar"
         button.addActionListener(e -> InterfazComboboxNueva());
@@ -61,6 +63,16 @@ public class InterfazCombobox extends JFrame {
                 setVisible(false);
             }
         });
+
+        button2.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                InterfazSelect gui = new InterfazSelect();
+                gui.setVisible(true);
+                setVisible(false);
+            }
+        });
+       
 
         // Hacer visible el JFrame
         setVisible(true);
@@ -88,6 +100,8 @@ public class InterfazCombobox extends JFrame {
         gbc.gridy = 2;
         gbc.gridwidth = 2;
         add(button1, gbc);
+        
+
 
         button1.addActionListener(e -> {
             String selectedOption = (String) comboBox.getSelectedItem();
@@ -95,19 +109,10 @@ public class InterfazCombobox extends JFrame {
             borrarPorUrl(selectedOption, url);
         });
 
+        
+
         // Hacer visible el JFrame
         setVisible(true);
-    }
-
-    private String getRelevantColumn(String tableName) {
-        switch (tableName) {
-            case "Archivo":
-                return "ruta";
-            case "Sitios_web":
-                return "url";
-            default:
-                throw new IllegalArgumentException("Tabla desconocida: " + tableName);
-        }
     }
 
     public void borrarPorUrl(String selectedOption, String url) {

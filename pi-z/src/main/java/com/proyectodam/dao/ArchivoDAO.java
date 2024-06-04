@@ -43,7 +43,7 @@ public class ArchivoDAO {
 
     // Leer un Escaneo_archivo por ID
     public static String obtenerArchivoPorURL(String url) {
-        String sql = "SELECT * FROM Archivo WHERE url = ?";
+        String sql = "SELECT * FROM Archivo WHERE ruta = ?";
         try (Connection conn = Conexion.getConnection(); /* Dentro del try meto lo que voy a ejecutar */
                 PreparedStatement pstmt = conn.prepareStatement(sql)) {
             pstmt.setString(1, url);

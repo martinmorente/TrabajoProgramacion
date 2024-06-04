@@ -107,7 +107,7 @@ escaneados y la gestión de páginas web escaneadas. No incluimos funciones avan
 ### Diagrama de Gantt
 **Representación gráfica del cronograma:**
 
-![Imagen Gantt](/run/media/martin/Disco_Datos/Grado Superior/1º DAM/Programación/3º Trimestre/Proyecto PI-Z/pi-z/docs/gestion_proyecto/gantt.puml "Imagen gantt")
+![Imagen Gantt](/run/media/martin/Coral/TRABAJOS/pi-z/docs/gestion_proyecto/gantt.png "Imagen gantt")
 
 ## Organización del Proyecto
 ### Equipo del Proyecto

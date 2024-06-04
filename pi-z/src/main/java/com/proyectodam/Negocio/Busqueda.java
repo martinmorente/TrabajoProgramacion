@@ -67,6 +67,7 @@ public class Busqueda {
                         String antivirus = entry.getKey();
                         JsonObject antivirusObject = entry.getValue().getAsJsonObject();
 
+
                           // Obtener el campo "scan_date"
                           JsonElement scanDateElement = rootObject.get("scan_date");
                           String scanDate = (scanDateElement != null && !(scanDateElement instanceof JsonNull)) ? scanDateElement.getAsString() : null;                          

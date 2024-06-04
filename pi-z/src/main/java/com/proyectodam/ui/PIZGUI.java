@@ -20,6 +20,8 @@ public class PIZGUI extends JFrame {
     private JButton btnLogin;
     private JButton verifyButton;
     private JButton scanButton;
+   
+
     public static Component frame;
 
     public PIZGUI() {
@@ -86,16 +88,7 @@ public class PIZGUI extends JFrame {
         gbc.gridy = 0;
         add(scanButton, gbc);
 
-    /*  scanButton = new JButton("Delete PaginasWeb");
-        gbc.gridx = 0;
-        gbc.gridy = 2;
-        add(scanButton, gbc);
 
-        scanButton = new JButton("Delete Archivos");
-        gbc.gridx = 1;
-        gbc.gridy = 2;
-        add(scanButton, gbc);
-*/
         // Vuelve a validar los componentes
         revalidate();
         /*Que lo repinte */

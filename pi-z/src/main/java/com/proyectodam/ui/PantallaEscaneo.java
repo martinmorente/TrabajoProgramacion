@@ -28,6 +28,8 @@ public class PantallaEscaneo extends JFrame {
     
     private static TextArea textArea; // Mueve la declaración del textArea aquí
     private JLabel textoEspera;
+    public JButton comboboxDeleteButton;
+    public JButton selectButton;
 
     public PantallaEscaneo() {
         super("Escaneo");
@@ -64,6 +66,16 @@ public class PantallaEscaneo extends JFrame {
         gbc.gridx = 0;
         gbc.gridy = 2;
         add(verificacionPantalla,gbc);
+        
+        JButton comboboxDeleteButton = new JButton("Borrar elementos");
+        gbc.gridx = 0;
+        gbc.gridy = 3;
+        add(comboboxDeleteButton,gbc);
+
+        JButton selectButton = new JButton("Mostrar elementos");
+        gbc.gridx = 0;
+        gbc.gridy = 4;
+        add(selectButton,gbc);
 
         escanear.addActionListener(new ActionListener() {
             @Override
@@ -128,6 +140,30 @@ public class PantallaEscaneo extends JFrame {
         });
 
         setVisible(true);
+
+        comboboxDeleteButton.addActionListener(new ActionListener() {
+            
+            @Override
+            public void actionPerformed(ActionEvent e){
+                com.proyectodam.ui.InterfazCombobox gui = new InterfazCombobox();
+                gui.setVisible(true);
+                setVisible(false);
+            }
+        });
+    
+        setVisible(true);
+
+        selectButton.addActionListener(new ActionListener() {
+            
+            @Override
+            public void actionPerformed(ActionEvent e){
+                InterfazSelect gui = new InterfazSelect();
+                gui.setVisible(true);
+                setVisible(false);
+            }
+        });
+    
+        setVisible(true);
     }
 
     public static String resultadoArchivo() {
@@ -184,7 +220,7 @@ public class PantallaEscaneo extends JFrame {
     public static boolean verificarResultadosValidos() {
         try {
             // Leer el fichero JSON
-            FileReader reader = new FileReader("/run/media/martin/Disco(Datos)/Grado Superior/1º DAM/Programación/3º Trimestre/Proyecto PI-Z/pi-z/src/main/java/com/proyectodam/Negocio/jsons/resultadoEscaneoArchivo.json");
+            FileReader reader = new FileReader("src/main/java/com/proyectodam/Negocio/jsons/resultadoEscaneoWeb.json");
             JsonElement jsonElement = JsonParser.parseReader(reader);
     
             // Verificar si el JSON es un objeto
