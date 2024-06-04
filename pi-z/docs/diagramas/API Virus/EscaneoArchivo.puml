@@ -1,7 +1,8 @@
 @startuml
-class EscaneoPaginaWeb{
+class EscaneoArchivo{
+
 	- final API_KEY: String
-	+ scanUrl(urlToEscan): String
-	+ getURLReport(scanId): String
+	+ scanFile(String filePath): String
+	+ getFileReport(String scanId): String
 }
 @enduml
